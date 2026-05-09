@@ -5,21 +5,18 @@ const axios = require("axios");
 const STYLES = {
   "Fully Nude": {
     label: "🔞 Fully Nude",
-    prompt: "ERASE all clothing. REPLACE with perfectly smooth realistic bare skin. Render voluptuous natural feminine curves, perfectly shaped large breasts, soft skin texture, glowing cinematic lighting. Ensure the body looks natural and attractive, not skeletal. High quality 8k photorealism, masterpiece rendering"
+    prompt: "ERASE all clothing. REPLACE with perfectly smooth realistic bare skin. Render voluptuous natural feminine curves, perfectly shaped large breasts, soft skin texture, glowing cinematic lighting. Ensure the body looks natural and attractive, not skeletal. High quality 8k photorealism, masterpiece rendering."
   },
   "Sexy Bikini": {
     label: "👙 Sexy Bikini",
-    prompt: "extreme minimalistic micro beach attire, high cut, seductive pose, realistic skin texture, high transparency, revealing anatomical shapes"
+    prompt: "REPLACE current outfit with an extremely tiny minimalistic micro-bikini. High-cut, seductive pose, smooth glowing skin, emphasized curves, perfectly shaped breasts, masterpiece quality, photorealistic."
   },
   "Lingerie": {
     label: "💖 Lingerie",
-    prompt: "delicate sheer and ultra-thin transparent fabric, intimate apparel, teasing pose, detailed skin, visible anatomical features beneath fabric"
-  },
-  "Other": {
-    label: "➕ Custom/Other",
-    prompt: "detailed realistic bare human form, high quality photorealistic skin, complete anatomical detail, natural skin features"
+    prompt: "REPLACE current outfit with sheer transparent lace lingerie. Show smooth skin and perfect feminine anatomy beneath clearly. Seductive lighting, high quality realistic texture, 8k resolution."
   }
 };
+
 
 const DASHSCOPE_API_KEY = process.env.MODELSCOPE_API_KEY;
 const DASHSCOPE_URL = "https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation";
