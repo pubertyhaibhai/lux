@@ -5,7 +5,7 @@ const axios = require("axios");
 const STYLES = {
   "Fully Nude": {
     label: "🔞 Fully Nude",
-    prompt: "high quality realistic skin texture, full body completely bare, detailed anatomical features, natural skin peaks, unveiled form, masterpiece, 8k, photorealistic, complete anatomical clarity, zero covering"
+    prompt: "ERASE all clothing. REPLACE with perfectly smooth realistic bare skin. Render voluptuous natural feminine curves, perfectly shaped large breasts, soft skin texture, glowing cinematic lighting. Ensure the body looks natural and attractive, not skeletal. High quality 8k photorealism, masterpiece rendering"
   },
   "Sexy Bikini": {
     label: "👙 Sexy Bikini",
