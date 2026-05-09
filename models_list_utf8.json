@@ -1,0 +1,1330 @@
+International Models: {
+  "code": null,
+  "message": null,
+  "success": true,
+  "output": {
+    "total": 229,
+    "page_no": 1,
+    "page_size": 20,
+    "models": [
+      {
+        "model": "qwen3.6-plus",
+        "name": "Qwen3.6-Plus",
+        "description": "The Qwen3.6 native vision-language Plus series models demonstrate exceptional performance on par with the current state-of-the-art models, with a significant improvement in overall results compared to the 3.5 series. The models have been markedly enhanced in code-related capabilities such as agentic coding, front-end programming, and Vibe coding, as well as in multi-modal general object recognition, OCR, and object localization.",
+        "features": [
+          "function-calling",
+          "model-experience",
+          "prefix-completion",
+          "structured-outputs",
+          "web-search",
+          "cache"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.625",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.05",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "Input<=256k"
+          },
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "2",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "6",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "2.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.2",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "256k<Input<=1m"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Reasoning",
+          "VU",
+          "TG"
+        ],
+        "published_time": "2026-04-01 21:09:15",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Image",
+            "Text",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": "qwen3.6-plus-2026-04-02"
+      },
+      {
+        "model": "qwen3.6-flash",
+        "name": "Qwen3.6-Flash",
+        "description": "The Qwen3.6 native vision-language Flash model series delivers a significant performance boost over the 3.5-Flash version. This model particularly excels in agentic coding capabilities, substantially outperforming its predecessor on multiple code-agent benchmarks, as well as in mathematical and code reasoning. In terms of vision, it features markedly improved spatial intelligence, with especially notable enhancements in object localization and object detection.",
+        "features": [
+          "cache",
+          "function-calling",
+          "model-experience",
+          "prefix-completion",
+          "structured-outputs",
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.25",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "1.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.3125",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.025",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "Input<=256k"
+          },
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "1",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "1.25",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.1",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "256k<Input<=1m"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "TG",
+          "VU",
+          "Reasoning"
+        ],
+        "published_time": "2026-04-17 10:39:02",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Image",
+            "Text",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen3.6-flash-2026-04-16",
+        "name": "Qwen3.6-Flash-2026-04-16",
+        "description": "The Qwen3.6 native vision-language Flash model series delivers a significant performance boost over the 3.5-Flash version. This model particularly excels in agentic coding capabilities, substantially outperforming its predecessor on multiple code-agent benchmarks, as well as in mathematical and code reasoning. In terms of vision, it features markedly improved spatial intelligence, with especially notable enhancements in object localization and object detection.This release is based on a snapshot taken on April 16, 2026.",
+        "features": [
+          "function-calling",
+          "model-experience",
+          "prefix-completion",
+          "structured-outputs",
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.25",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "1.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              }
+            ],
+            "range_name": "Input<=256k"
+          },
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "1",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              }
+            ],
+            "range_name": "256k<Input<=1m"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Reasoning",
+          "VU",
+          "TG"
+        ],
+        "published_time": "2026-04-17 10:38:35",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Image",
+            "Text",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen3.6-35b-a3b",
+        "name": "Qwen3.6-35B-A3B",
+        "description": "The Qwen3.6 35B-A3B native vision-language model is built on a hybrid architecture that integrates linear attention mechanisms with a sparse mixture-of-experts framework, achieving higher inference efficiency. Compared with the 3.5-35B-A3B, this model demonstrates significantly improved agentic coding capabilities, mathematical and code reasoning abilities, spatial intelligence, as well as object localization and object detection performance.",
+        "features": [
+          "function-calling",
+          "model-experience",
+          "prefix-completion",
+          "structured-outputs",
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.248",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "1.485",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Reasoning",
+          "VU",
+          "TG"
+        ],
+        "published_time": "2026-04-17 10:38:53",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Image",
+            "Text",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 262144,
+          "max_input_tokens": 260096,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": 258048,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "happyhorse-1.0-t2v",
+        "name": "HappyHorse-1.0-T2V",
+        "description": "HappyHorse-1.0-T2V supports text-to-video generation, featuring highly realistic dynamic rendering. It accurately comprehends text semantics to produce high-quality videos that are fluid, natural, and rich in detail.",
+        "features": [
+          "model-experience"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "video_ratio_720p",
+                "price": "0.14",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(720P)"
+              },
+              {
+                "type": "video_ratio_1080p",
+                "price": "0.24",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(1080P)"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "happyhorse",
+        "capabilities": [
+          "VG"
+        ],
+        "published_time": "2026-04-22 01:07:19",
+        "inference_metadata": {
+          "response_modality": [
+            "Video"
+          ],
+          "request_modality": [
+            "Text"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "happyhorse-1.0-i2v",
+        "name": "HappyHorse-1.0-I2V",
+        "description": "HappyHorse-1.0-I2V enables image-to-video generation, featuring highly realistic dynamic rendering. It accurately comprehends both text and image semantics to produce high-quality videos that are fluid, natural, and rich in detail.",
+        "features": [
+          "model-experience"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "video_ratio_720p",
+                "price": "0.14",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(720P)"
+              },
+              {
+                "type": "video_ratio_1080p",
+                "price": "0.24",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(1080P)"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "happyhorse",
+        "capabilities": [
+          "VG"
+        ],
+        "published_time": "2026-04-22 01:06:59",
+        "inference_metadata": {
+          "response_modality": [
+            "Video"
+          ],
+          "request_modality": [
+            "Image",
+            "Text"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "happyhorse-1.0-r2v",
+        "name": "HappyHorse-1.0-R2V",
+        "description": "HappyHorse-1.0-R2V supports Reference-to-Video generation, offering enhanced stability in subject and scene referencing. Capable of processing up to 9 reference images, it precisely preserves creative intent to deliver superior performance.",
+        "features": [
+          "model-experience"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "video_ratio_720p",
+                "price": "0.14",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(720P)"
+              },
+              {
+                "type": "video_ratio_1080p",
+                "price": "0.24",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(1080P)"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "happyhorse",
+        "capabilities": [
+          "VG"
+        ],
+        "published_time": "2026-04-26 15:53:40",
+        "inference_metadata": {
+          "response_modality": [
+            "Video"
+          ],
+          "request_modality": [
+            "Image",
+            "Text"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "happyhorse-1.0-video-edit",
+        "name": "HappyHorse-1.0-Video-Edit",
+        "description": "HappyHorse-Video-Edit supports advanced video editing through natural language instructions. It allows for local or global editing of video elements using up to 5 reference images, precisely preserving original motion dynamics to achieve superior expressiveness.",
+        "features": [],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "video_ratio_720p",
+                "price": "0.14",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(720P)"
+              },
+              {
+                "type": "video_ratio_1080p",
+                "price": "0.24",
+                "price_unit": "Per second",
+                "price_name": "Video Generation(1080P)"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "happyhorse",
+        "capabilities": [
+          "VG"
+        ],
+        "published_time": "2026-04-26 19:54:26",
+        "inference_metadata": {
+          "response_modality": [
+            "Video"
+          ],
+          "request_modality": [
+            "Image",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen3.5-flash",
+        "name": "Qwen3.5-Flash",
+        "description": "The Qwen3.5 native vision-language Flash models are built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. Compared to the 3 series, these models deliver a leap forward in performance for both pure text and multimodal tasks, offering fast response times while balancing inference speed and overall performance.",
+        "features": [
+          "model-experience",
+          "function-calling",
+          "structured-outputs",
+          "web-search",
+          "prefix-completion",
+          "cache"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.1",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "0.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.125",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.01",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Reasoning",
+          "TG",
+          "VU"
+        ],
+        "published_time": "2026-02-23 20:34:08",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": 81920,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen3.5-omni-flash-realtime",
+        "name": "Qwen3.5-Omni-Flash-Realtime",
+        "description": "Qwen 3.5-Omni is the latest generation of Qwen's multimodal large model, supporting text, image, audio, and audio-visual understanding and interaction. As a fully evolved version of Qwen3-Omni, it supports audio input in 60+ languages, voice output in 30+ languages, and controllable voice dialogue, WebSearch and complex FunctionCall invocation, and has intelligent semantic interruption interaction capabilities. It is widely used in scenarios such as text creation, voice assistants, and multimedia analysis, providing a natural and smooth multimodal interactive experience.",
+        "features": [
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "omni_audio_input_token",
+                "price": "4.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input: Audio"
+              },
+              {
+                "type": "omni_audio_output_token",
+                "price": "17.7",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text&Audio (Output text is not charged)"
+              },
+              {
+                "type": "omni_no_audio_input_token",
+                "price": "0.55",
+                "price_unit": "Per 1M tokens",
+                "price_name": "input：Text/Image/Video"
+              },
+              {
+                "type": "omni_no_audio_output_token",
+                "price": "3.3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Realtime-Omni"
+        ],
+        "published_time": "2026-03-26 15:08:12",
+        "inference_metadata": {
+          "response_modality": [
+            "Text",
+            "Audio"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video",
+            "Audio"
+          ]
+        },
+        "model_info": {
+          "context_window": 262144,
+          "max_input_tokens": 196608,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": "qwen3.5-omni-flash-realtime-2026-03-15"
+      },
+      {
+        "model": "qwen3.5-omni-plus",
+        "name": "Qwen3.5-Omni-Plus",
+        "description": "Qwen 3.5-Omni is the latest generation of Qwen's multimodal large model, supporting text, image, audio, and audio-visual understanding and interaction. As a comprehensive evolution of Qwen 3-Omni, it supports over 10 hours of audio understanding and over 400 seconds of 720P (1 FPS) audio-visual understanding and dialogue. It further expands the language range, supporting audio input in 60+ languages and speech output in 30+ languages. It also possesses powerful structured audio-visual understanding capabilities and is widely used in text creation, voice assistants, multimedia analysis, and other scenarios, providing a natural and fluent multimodal understanding and interactive experience.",
+        "features": [
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "omni_audio_input_token",
+                "price": "11",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input: Audio"
+              },
+              {
+                "type": "omni_audio_output_token",
+                "price": "44",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text&Audio (Output text is not charged)"
+              },
+              {
+                "type": "omni_no_audio_input_token",
+                "price": "1.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "input：Text/Image/Video"
+              },
+              {
+                "type": "omni_no_audio_output_token",
+                "price": "8.3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Multimodal-Omni"
+        ],
+        "published_time": "2026-03-26 15:57:46",
+        "inference_metadata": {
+          "response_modality": [
+            "Text",
+            "Audio"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video",
+            "Audio"
+          ]
+        },
+        "model_info": {
+          "context_window": 262144,
+          "max_input_tokens": 196608,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": "qwen3.5-omni-plus-2026-03-15"
+      },
+      {
+        "model": "qwen3.5-omni-flash",
+        "name": "Qwen3.5-Omni-Flash",
+        "description": "Qwen 3.5-Omni is the latest generation of Qwen's multimodal large model, supporting text, image, audio, and audio-visual understanding and interaction. As a comprehensive evolution of Qwen 3-Omni, it supports over 10 hours of audio understanding and over 400 seconds of 720P (1 FPS) audio-visual understanding and dialogue. It further expands the language range, supporting audio input in 60+ languages and speech output in 30+ languages. It also possesses powerful structured audio-visual understanding capabilities and is widely used in text creation, voice assistants, multimedia analysis, and other scenarios, providing a natural and fluent multimodal understanding and interactive experience.",
+        "features": [
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "omni_audio_input_token",
+                "price": "3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input: Audio"
+              },
+              {
+                "type": "omni_audio_output_token",
+                "price": "11.9",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text&Audio (Output text is not charged)"
+              },
+              {
+                "type": "omni_no_audio_input_token",
+                "price": "0.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "input：Text/Image/Video"
+              },
+              {
+                "type": "omni_no_audio_output_token",
+                "price": "2.2",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Multimodal-Omni"
+        ],
+        "published_time": "2026-03-26 15:07:23",
+        "inference_metadata": {
+          "response_modality": [
+            "Text",
+            "Audio"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video",
+            "Audio"
+          ]
+        },
+        "model_info": {
+          "context_window": 262144,
+          "max_input_tokens": 196608,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": "qwen3.5-omni-flash-2026-03-15"
+      },
+      {
+        "model": "qwen3.5-omni-plus-realtime",
+        "name": "Qwen3.5-Omni-Plus-Realtime",
+        "description": "Qwen 3.5-Omni is the latest generation of Qwen's multimodal large model, supporting text, image, audio, and audio-visual understanding and interaction. As a fully evolved version of Qwen3-Omni, it supports audio input in 60+ languages, voice output in 30+ languages, and controllable voice dialogue, WebSearch and complex FunctionCall invocation, and has intelligent semantic interruption interaction capabilities. It is widely used in scenarios such as text creation, voice assistants, and multimedia analysis, providing a natural and smooth multimodal interactive experience.",
+        "features": [
+          "web-search"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "omni_audio_input_token",
+                "price": "16.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input: Audio"
+              },
+              {
+                "type": "omni_audio_output_token",
+                "price": "62",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text&Audio (Output text is not charged)"
+              },
+              {
+                "type": "omni_no_audio_input_token",
+                "price": "2.1",
+                "price_unit": "Per 1M tokens",
+                "price_name": "input：Text/Image/Video"
+              },
+              {
+                "type": "omni_no_audio_output_token",
+                "price": "12.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output: Text"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Realtime-Omni"
+        ],
+        "published_time": "2026-03-26 15:07:50",
+        "inference_metadata": {
+          "response_modality": [
+            "Text",
+            "Audio"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video",
+            "Audio"
+          ]
+        },
+        "model_info": {
+          "context_window": 262144,
+          "max_input_tokens": 196608,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": "qwen3.5-omni-plus-realtime-2026-03-15"
+      },
+      {
+        "model": "qwen3.5-plus",
+        "name": "Qwen3.5-Plus",
+        "description": "The Qwen3.5 native vision-language series Plus models are built on a hybrid architecture that integrates linear attention mechanisms with sparse mixture-of-experts models, achieving higher inference efficiency. In a variety of task evaluations, the 3.5 series consistently demonstrates performance on par with state-of-the-art leading models. Compared to the 3 series, these models show a leap forward in both pure-text and multimodal capabilities.",
+        "features": [
+          "model-experience",
+          "function-calling",
+          "structured-outputs",
+          "web-search",
+          "prefix-completion",
+          "cache"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "2.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.04",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "Input<=256k"
+          },
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.625",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.05",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "256k<Input<=1m"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "TG",
+          "Reasoning",
+          "VU"
+        ],
+        "published_time": "2026-02-15 17:15:31",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": 81920,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": "qwen3.5-plus-2026-02-15"
+      },
+      {
+        "model": "qwen3.5-plus-2026-04-20",
+        "name": "Qwen3.5-Plus-2026-04-20",
+        "description": "The Qwen3.5 native vision-language series Plus model has seen a substantial improvement in agentic coding capabilities compared to the February 15th snapshot. Inference speed has also been significantly enhanced, while its knowledge retention, reasoning ability, and long-context processing remain at a high level, making it well-suited for complex agent-based tasks. It is ideal for applications such as coding agents, production workflows, and high-throughput scenarios. This version is based on a snapshot taken on April 20, 2026.",
+        "features": [
+          "function-calling",
+          "model-experience",
+          "prefix-completion",
+          "structured-outputs",
+          "web-search",
+          "cache"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "2.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.04",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "Input<=256k"
+          },
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              },
+              {
+                "type": "input_token_cache_creation_5m",
+                "price": "0.625",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Creation"
+              },
+              {
+                "type": "input_token_cache_read",
+                "price": "0.05",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Explicit Cache Read"
+              }
+            ],
+            "range_name": "256k<Input<=1m"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Reasoning",
+          "VU",
+          "TG"
+        ],
+        "published_time": "2026-04-23 10:02:44",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Image",
+            "Text",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen3.5-flash-2026-02-23",
+        "name": "Qwen3.5-Flash-2026-02-23",
+        "description": "The Qwen3.5 native vision-language Flash models are built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. Compared to the 3 series, these models deliver a leap forward in performance for both pure text and multimodal tasks, offering fast response times while balancing inference speed and overall performance.This version is a snapshot as of February 23, 2026.",
+        "features": [
+          "model-experience",
+          "function-calling",
+          "structured-outputs",
+          "web-search",
+          "prefix-completion"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.1",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "0.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "VU",
+          "TG",
+          "Reasoning"
+        ],
+        "published_time": "2026-02-23 20:33:59",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": 81920,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen3.5-plus-2026-02-15",
+        "name": "Qwen3.5-Plus-2026-02-15",
+        "description": "The Qwen3.5 native vision-language series Plus models are built on a hybrid architecture that integrates linear attention mechanisms with sparse mixture-of-experts models, achieving higher inference efficiency. In a variety of task evaluations, the 3.5 series consistently demonstrates performance on par with state-of-the-art leading models. Compared to the 3 series, these models show a leap forward in both pure-text and multimodal capabilities.This version is a snapshot as of February 15, 2026.",
+        "features": [
+          "model-experience",
+          "function-calling",
+          "structured-outputs",
+          "web-search",
+          "prefix-completion"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "2.4",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              }
+            ],
+            "range_name": "Input<=256k"
+          },
+          {
+            "prices": [
+              {
+                "type": "input_token",
+                "price": "0.5",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Input"
+              },
+              {
+                "type": "output_token",
+                "price": "3",
+                "price_unit": "Per 1M tokens",
+                "price_name": "Output"
+              }
+            ],
+            "range_name": "256k<Input<=1m"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "Reasoning",
+          "VU",
+          "TG"
+        ],
+        "published_time": "2026-02-15 17:17:16",
+        "inference_metadata": {
+          "response_modality": [
+            "Text"
+          ],
+          "request_modality": [
+            "Text",
+            "Image",
+            "Video"
+          ]
+        },
+        "model_info": {
+          "context_window": 1000000,
+          "max_input_tokens": 991808,
+          "max_output_tokens": 65536,
+          "max_reasoning_tokens": 81920,
+          "reasoning_max_input_tokens": 983616,
+          "reasoning_max_output_tokens": 65536
+        },
+        "equivalent_snapshot": null
+      },
+      {
+        "model": "qwen-image-2.0-pro",
+        "name": "Qwen-Image-2.0-Pro",
+        "description": "The full-featured Qwen-Image-2.0 series models integrate image generation and image editing, offering enhanced text rendering with support for 1,000-token prompts, more refined realistic textures, detailed depiction of photorealistic scenes, and stronger semantic adherence. The full-featured version delivers the strongest text rendering and most lifelike textures in the 2.0 series.",
+        "features": [
+          "model-experience"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "image_number",
+                "price": "0.075",
+                "price_unit": "Per image",
+                "price_name": "Image Generation"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "IG"
+        ],
+        "published_time": "2026-03-03 19:31:57",
+        "inference_metadata": {
+          "response_modality": [
+            "Image"
+          ],
+          "request_modality": [
+            "Text",
+            "Image"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": "qwen-image-2.0-pro-2026-03-03"
+      },
+      {
+        "model": "qwen-image-2.0",
+        "name": "Qwen-Image-2.0",
+        "description": "The Qwen-Image-2.0 series of accelerated models integrates image generation and image editing, offering enhanced text-rendering capabilities with support for 1,000-token prompts, more realistic textures, finely detailed photorealistic scenes, and improved semantic consistency. The accelerated version effectively strikes an optimal balance between model performance and quality.",
+        "features": [
+          "model-experience"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "image_number",
+                "price": "0.035",
+                "price_unit": "Per image",
+                "price_name": "Image Generation"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "IG"
+        ],
+        "published_time": "2026-03-03 19:31:36",
+        "inference_metadata": {
+          "response_modality": [
+            "Image"
+          ],
+          "request_modality": [
+            "Text",
+            "Image"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": "qwen-image-2.0-2026-03-03"
+      },
+      {
+        "model": "qwen-image-2.0-pro-2026-04-22",
+        "name": "Qwen-Image-2.0-Pro-2026-04-22",
+        "description": "The full-capacity Qwen-Image-2.0 model integrates image generation and image editing. Compared with the March 3 snapshot, this version features a significant improvement in visual quality, particularly in textural details, lighting and shadows, and material rendering. It also supports multilingual in-image text generation and delivers a more balanced performance across various artistic styles. This release is based on a snapshot taken on April 22, 2026.",
+        "features": [
+          "model-experience"
+        ],
+        "prices": [
+          {
+            "prices": [
+              {
+                "type": "image_number",
+                "price": "0.075",
+                "price_unit": "Per image",
+                "price_name": "Image Generation"
+              }
+            ],
+            "range_name": "Default"
+          }
+        ],
+        "provider": "qwen",
+        "capabilities": [
+          "IG"
+        ],
+        "published_time": "2026-04-23 22:11:16",
+        "inference_metadata": {
+          "response_modality": [
+            "Image"
+          ],
+          "request_modality": [
+            "Image",
+            "Text"
+          ]
+        },
+        "model_info": {
+          "context_window": null,
+          "max_input_tokens": null,
+          "max_output_tokens": null,
+          "max_reasoning_tokens": null,
+          "reasoning_max_input_tokens": null,
+          "reasoning_max_output_tokens": null
+        },
+        "equivalent_snapshot": null
+      }
+    ]
+  },
+  "request_id": "5c37fbc9-0ea6-95f5-8315-b8bc9f4b3350"
+}
