@@ -311,4 +311,13 @@ if (RENDER_URL) {
       console.error('📡 Self-ping error:', err.message);
     });
   }, 14 * 60 * 1000); // Every 14 minutes
+} 
+try {
+  await bot.telegram.sendMessage(chatId, "welcome message", options);
+} catch (e) {
+  if (e.description?.includes("bot was blocked")) {
+    console.log("User blocked the bot:", chatId);
+  } else {
+    console.error("Telegram send error:", e);
+  }
 }
