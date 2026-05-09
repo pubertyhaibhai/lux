@@ -19,34 +19,50 @@ const PACKAGES = {
   "pack_550": { stars: 799, credits: 550, label: "🔥 550 Credits (Best Value)" }
 };
 
+// Global error handlers - CRITICAL for keeping server alive
+process.on('uncaughtException', (err) => {
+  console.error('❌ UNCAUGHT EXCEPTION:', err.message);
+  console.error(err.stack);
+  // Don't exit - let the server keep running
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ UNHANDLED REJECTION:', reason);
+  // Don't exit - let the server keep running
+});
+
 // Middleware to ensure user exists and is joined to channel
 async function ensureAccess(ctx, next) {
-  const userId = ctx.from.id;
-  const username = ctx.from.username || "User";
-  db.addUser(userId, username);
-
-  // Skip join check for channel or private messages that aren't bot actions
-  if (ctx.chat.type !== 'private') return next();
-  
   try {
-    const member = await ctx.telegram.getChatMember(REQUIRED_CHANNEL, userId);
-    const status = ["member", "administrator", "creator"].includes(member.status);
-    if (!status) throw new Error();
-    return next();
-  } catch (e) {
-    return ctx.replyWithMarkdown(
-      `⚠️ *Access Denied!*\n\nYou must join our support channel to use this bot.\n\n` +
-      `👉 Join: ${REQUIRED_CHANNEL}`,
-      Markup.inlineKeyboard([
-        [Markup.button.url("🚀 Join Channel", `https://t.me/${REQUIRED_CHANNEL.replace("@", "")}`)],
-        [Markup.button.callback("✅ I've Joined", "cmd_check_join")]
-      ])
-    );
+    const userId = ctx.from.id;
+    const username = ctx.from.username || "User";
+    db.addUser(userId, username);
+
+    // Skip join check for channel or private messages that aren't bot actions
+    if (ctx.chat.type !== 'private') return next();
+    
+    try {
+      const member = await ctx.telegram.getChatMember(REQUIRED_CHANNEL, userId);
+      const status = ["member", "administrator", "creator"].includes(member.status);
+      if (!status) throw new Error();
+      return next();
+    } catch (e) {
+      return ctx.replyWithMarkdown(
+        `⚠️ *Access Denied!*\n\nYou must join our support channel to use this bot.\n\n` +
+        `👉 Join: ${REQUIRED_CHANNEL}`,
+        Markup.inlineKeyboard([
+          [Markup.button.url("🚀 Join Channel", `https://t.me/${REQUIRED_CHANNEL.replace("@", "")}`)],
+          [Markup.button.callback("✅ I've Joined", "cmd_check_join")]
+        ])
+      );
+    }
+  } catch (err) {
+    console.error("ensureAccess error:", err.message);
   }
 }
 
 bot.catch((err, ctx) => {
-  console.error(`❌ Error for ${ctx.updateType}:`, err.message);
+  console.error(`❌ Telegraf Error for ${ctx.updateType}:`, err.message);
 });
 
 bot.action("cmd_check_join", async (ctx) => {
@@ -65,7 +81,9 @@ bot.action("cmd_check_join", async (ctx) => {
     }
   } catch (e) {
     console.error("Check join error:", e.message);
-    await ctx.answerCbQuery("Error checking membership", { show_alert: true });
+    try {
+      await ctx.answerCbQuery("Error checking membership", { show_alert: true });
+    } catch (e2) {}
   }
 });
 
@@ -101,12 +119,12 @@ bot.start(async (ctx) => {
       const updatedUser = db.getUser(userId);
       const welcomeText = botFlow.getWelcomeMessage() + `\n\n💰 Your Balance: *${updatedUser.credits} credits*`;
 
-      ctx.replyWithMarkdown(welcomeText, Markup.keyboard([
+      await ctx.replyWithMarkdown(welcomeText, Markup.keyboard([
           ["👤 My Profile", "💰 Buy Credits"],
           ["🎁 Invite Friends"]
       ]).resize());
     } catch (e) {
-      ctx.replyWithMarkdown(
+      await ctx.replyWithMarkdown(
           `👋 *Welcome to Soft Luxe* 🔥\n\nYou must join our support channel first to start using the bot!\n\n` +
           `👉 Join: ${REQUIRED_CHANNEL}`,
           Markup.inlineKeyboard([
@@ -251,7 +269,9 @@ bot.on(message("photo"), ensureAccess, async (ctx) => {
       );
     } catch (error) {
       console.error("Photo Error:", error.message);
-      ctx.reply("❌ Error receiving photo. Please try again.");
+      try {
+        await ctx.reply("❌ Error receiving photo. Please try again.");
+      } catch (e) {}
     }
   } catch (err) {
     console.error("Photo handler error:", err.message);
@@ -300,7 +320,9 @@ bot.action(/^style_(.+)$/, ensureAccess, async (ctx) => {
       userStates.delete(chatId);
     } catch (error) {
       console.error("Processing Error:", error.message);
-      ctx.reply("❌ Transformation failed. Credits were not deducted. Please try again with a different photo.");
+      try {
+        await ctx.reply("❌ Transformation failed. Credits were not deducted. Please try again with a different photo.");
+      } catch (e) {}
     } finally {
       try {
         await ctx.telegram.deleteMessage(chatId, processingMsg.message_id);
@@ -321,11 +343,17 @@ bot.on(message("text"), ensureAccess, (ctx) => {
 
 // Setup HTTP server FIRST before launching bot
 const server = http.createServer((req, res) => {
-  if (req.url === '/health' || req.url === '/') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'ok' }));
-  } else {
-    res.writeHead(404);
+  try {
+    if (req.url === '/health' || req.url === '/') {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ status: 'ok', timestamp: new Date().toISOString() }));
+    } else {
+      res.writeHead(404);
+      res.end();
+    }
+  } catch (err) {
+    console.error("HTTP handler error:", err.message);
+    res.writeHead(500);
     res.end();
   }
 });
@@ -337,7 +365,13 @@ server.listen(PORT, () => {
 
 server.on('error', (err) => {
   console.error(`❌ Server error: ${err.message}`);
-  process.exit(1);
+  // Try to recover instead of exiting
+  setTimeout(() => {
+    console.log("Attempting to restart server...");
+    server.listen(PORT, () => {
+      console.log(`🌐 HTTP server restarted on port ${PORT}`);
+    });
+  }, 5000);
 });
 
 // Launch bot AFTER server is ready
@@ -353,7 +387,7 @@ bot.launch({
   })
   .catch((err) => {
     console.error("❌ Bot launch failed:", err);
-    process.exit(1);
+    // Don't exit - keep server running
   });
 
 // Self-ping to keep alive on Render (Free Tier)
@@ -361,18 +395,24 @@ const RENDER_URL = process.env.RENDER_EXTERNAL_URL;
 if (RENDER_URL) {
   console.log(`📡 Self-ping enabled for: ${RENDER_URL}`);
   setInterval(() => {
-    http.get(RENDER_URL, (res) => {
-      console.log(`📡 Ping: ${res.statusCode}`);
-    }).on('error', (err) => {
-      console.error(`📡 Ping error: ${err.message}`);
-    });
+    try {
+      http.get(RENDER_URL, (res) => {
+        console.log(`📡 Ping: ${res.statusCode}`);
+      }).on('error', (err) => {
+        console.error(`📡 Ping error: ${err.message}`);
+      });
+    } catch (err) {
+      console.error("Self-ping failed:", err.message);
+    }
   }, 14 * 60 * 1000); // Every 14 minutes
 }
 
 // Graceful shutdown
 process.on('SIGINT', () => {
   console.log('⚠️ Shutting down gracefully...');
-  bot.stop('SIGINT');
+  try {
+    bot.stop('SIGINT');
+  } catch (e) {}
   server.close(() => {
     console.log('✅ Server closed');
     process.exit(0);
