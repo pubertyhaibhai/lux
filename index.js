@@ -215,7 +215,7 @@ bot.on(message("photo"), ensureAccess, async (ctx) => {
     userStates.set(chatId, { image_url: fileLink.href });
 
     await ctx.reply(
-      "📸 *Image Captured!* 🔥\n\nSelect your transformation style. Each generation costs *10 credits*.",
+      "��� *Image Captured!* 🔥\n\nSelect your transformation style. Each generation costs *10 credits*.",
       { 
         parse_mode: "Markdown",
         ...botFlow.getStyleKeyboard() 
@@ -311,13 +311,4 @@ if (RENDER_URL) {
       console.error('📡 Self-ping error:', err.message);
     });
   }, 14 * 60 * 1000); // Every 14 minutes
-} 
-try {
-  await bot.telegram.sendMessage(chatId, "welcome message", options);
-} catch (e) {
-  if (e.description?.includes("bot was blocked")) {
-    console.log("User blocked the bot:", chatId);
-  } else {
-    console.error("Telegram send error:", e);
-  }
 }
