@@ -215,7 +215,7 @@ bot.on(message("photo"), ensureAccess, async (ctx) => {
     userStates.set(chatId, { image_url: fileLink.href });
 
     await ctx.reply(
-      "��� *Image Captured!* 🔥\n\nSelect your transformation style. Each generation costs *10 credits*.",
+      "📸 *Image Captured!* 🔥\n\nSelect your transformation style. Each generation costs *10 credits*.",
       { 
         parse_mode: "Markdown",
         ...botFlow.getStyleKeyboard() 
@@ -280,35 +280,62 @@ bot.on(message("text"), ensureAccess, (ctx) => {
   ctx.reply("📸 Send a photo first to start the transformation!");
 });
 
+// Setup HTTP server FIRST before launching bot
+const server = http.createServer((req, res) => {
+  if (req.url === '/health' || req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ status: 'ok' }));
+  } else {
+    res.writeHead(404);
+    res.end();
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`🌐 HTTP server listening on port ${PORT}`);
+});
+
+server.on('error', (err) => {
+  console.error(`❌ Server error: ${err.message}`);
+  process.exit(1);
+});
+
+// Launch bot AFTER server is ready
 console.log("🚀 Starting Soft Luxe Bot...");
 bot.launch({
   polling: {
     timeout: 30,
     allowedUpdates: ["message", "callback_query", "pre_checkout_query"]
   }
-}).then(() => {
-  console.log("✅ Soft Luxe is online!");
-}).catch(err => {
-  console.error("❌ Bot launch error:", err);
-});
-
-// Keep-alive for Render
-const server = http.createServer((req, res) => {
-  res.writeHead(200);
-  res.end("Soft Luxe is running");
-});
-
-const PORT = process.env.PORT || 3000;
-server.listen(PORT).on('error', (e) => console.log("Server warning:", e.message));
+})
+  .then(() => {
+    console.log("✅ Soft Luxe Telegram bot is online!");
+  })
+  .catch((err) => {
+    console.error("❌ Bot launch failed:", err);
+    process.exit(1);
+  });
 
 // Self-ping to keep alive on Render (Free Tier)
 const RENDER_URL = process.env.RENDER_EXTERNAL_URL;
 if (RENDER_URL) {
+  console.log(`📡 Self-ping enabled for: ${RENDER_URL}`);
   setInterval(() => {
     http.get(RENDER_URL, (res) => {
-      console.log(`📡 Self-ping status: ${res.statusCode}`);
+      console.log(`📡 Ping: ${res.statusCode}`);
     }).on('error', (err) => {
-      console.error('📡 Self-ping error:', err.message);
+      console.error(`📡 Ping error: ${err.message}`);
     });
   }, 14 * 60 * 1000); // Every 14 minutes
 }
+
+// Graceful shutdown
+process.on('SIGINT', () => {
+  console.log('⚠️ Shutting down gracefully...');
+  bot.stop('SIGINT');
+  server.close(() => {
+    console.log('✅ Server closed');
+    process.exit(0);
+  });
+});
